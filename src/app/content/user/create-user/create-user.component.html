@@ -1,0 +1,41 @@
+<mat-card class="candidateCard  mat-elevation-z8">
+
+  <form [formGroup]="userForm">
+
+    <!--title-->
+    <div class="app-list-name">
+      <mat-card-title>
+        Create User
+      </mat-card-title>
+    </div>
+    <!--name ,role and password-->
+    <div>
+      <mat-form-field style="width:100%">
+        <input matInput formControlName="name" placeholder="User Name"/>
+      </mat-form-field>
+
+      <mat-form-field style="width:100%">
+        <input matInput type="text" placeholder="Pick Role" aria-label="Number" formControlName="role"
+                  [matAutocomplete]="auto"/>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field style="width:100%">
+        <input matInput type="password" formControlName="jenkinsPassword" placeholder="User Password"/>
+      </mat-form-field>
+    </div>
+    <!--submit button-->
+    <div class="box">
+      <div class="push">
+        <button mat-button color="warn" type="submit" style="float: right;" (click)="onSubmit()">SUBMIT</button>
+      </div>
+    </div>
+  </form>
+
+
+</mat-card>
